@@ -1,0 +1,9 @@
+fastapi>=0.143,<1
+uvicorn>=0.54,<1
+pandas>=3.0,<4
+python-multipart>=0.0.32,<1
+openpyxl>=3.1.5,<4
+xlrd>=2.0.2,<3
+google-generativeai==0.8.6
+numpy>=2.0,<3
+pydantic>=2.14,<3
