@@ -292,6 +292,7 @@ def is_numeric(series: pd.Series):
 
 def fill_missing(df: pd.DataFrame, column: str, method: str):
     series = df[column]
+    is_int = pd.api.types.is_integer_dtype(series)
     count = int(series.isna().sum())
     if not count:
         return 0, ""
@@ -311,6 +312,10 @@ def fill_missing(df: pd.DataFrame, column: str, method: str):
     if method in {"mean", "median"}:
         series = series.astype(float)
     df[column] = series.fillna(value)
+
+    if is_int:
+        df[column] = df[column].round().astype("Int64")
+
     return count, ""
 
 
